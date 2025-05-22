@@ -12,7 +12,7 @@ Route::get('/', [WelcomeController::class, 'index']);
 // Route::put('/products/{id}', [ProductController::class, 'update']);
 // Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 // Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::resource('products', ProductController::class);
+// Route::resource('products', ProductController::class);
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -26,3 +26,7 @@ Route::post('/ask-llama', [LlamaController::class, 'ask']);
 Route::get('/react', function () {
     return view('react');
 });
+
+Route::get('/{any}', function () {
+    return view('App');
+})->where('any', '.*');
